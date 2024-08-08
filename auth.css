@@ -67,11 +67,13 @@ h2 {
     object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
     .container {
         flex-direction: column;
     }
-
+    .log-container {
+        width: 100%;
+    }
     .side-img {
         display: none;
     }
