@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="create_event.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+	<div class="logo">
+            <img src="static/imgs/logo.png" alt="">
+	</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button class="btn" type="submit">Search</button>
+        </div>
+        <div class="buttons">
+            <button class="party">Create Party</button>
+            <button class="party">Favorites</button>
+            <button class="party">Help Center</button>
+        </div>
+    </header>
+    <main>
+
+        <div class="container">
+            <h2>Create an Event</h2>
+
+            <!-- First Section: 8 Inputs (4 lines with 2 inputs each) -->
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Event Name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Event Type">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="email" class="form-control" placeholder="Priced Event">
+                </div>
+                <div class="col">
+                    <input type="password" class="form-control" placeholder="Price $">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Date">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Location">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Start Time">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="End Time">
+                </div>
+            </div>
+
+        <!-- Second Section: 3 Inputs vertically (with one for description) -->
+            <div class="column">
+                <input type="text" class="form-control" placeholder="Event Format">
+                <input type="text" class="form-control" placeholder="Hashtags">
+                <textarea class="form-control" placeholder="Description"></textarea>
+            </div>
+
+        <!-- Save Button -->
+            <div class="button-group">
+                <button type="submit" class="btn">Save & continue</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,178 @@
+/* styles.css */
+
+/* General body styling */
+body {
+    background-image: url('static/imgs/creat_event.jpg');
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff; /* Dark background color for the header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.search-bar {
+    margin: 15px 0;
+}
+
+.search-bar input {
+    padding: 8px;
+    border-radius: 5px 0 0 4px;
+    border: 1px solid;
+}
+
+/*.search-bar button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+*/
+.search-bar button {
+  padding: 8px 16px;
+  background-color: #C4A265;
+  border: none;
+  color: rgb(0, 0, 0);
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons button {
+  padding: 8px 16px;
+  border: 1px solid #D9D9D9;
+  background-color: #D9D9D9;
+  color: rgb(0, 0, 0);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/*.buttons .party {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+*/
+.buttons button:hover {
+    border: 1px solid #C4A265;
+    background-color: #C4A265;
+    transform: scale(1.1);
+}
+
+/* Container styling with dark gray background */
+.container {
+    width: 80%;
+    max-width: 600px;
+    background-color: #454343bd; /* Dark gray transparent background for the form container */
+    padding: 20px 80px 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Space below the header */
+}
+
+/* Header styling for form */
+h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Input field styling with border-radius */
+.form-control {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 10px; /* Rounded corners for input fields */
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Layout for input rows */
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* To make two columns fit horizontally */
+}
+
+/* Layout for the vertical column */
+.column {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Larger textarea for description */
+textarea.form-control {
+    height: 100px;
+    resize: vertical;
+    border-radius: 10px; /* Rounded corners for textarea */
+}
+
+/* Button styling */
+.button-group {
+    text-align: center;
+}
+
+.btn {
+    background-color: #190c76;
+    color: white;
+    padding: 10px 20px;
+    border-color: #fff;
+    border-radius: 10px; /* Rounded corners for button */
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
