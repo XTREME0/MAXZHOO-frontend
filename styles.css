@@ -6,6 +6,7 @@ body {
 .header {
     background-color: rgb(255, 255, 255);
     display: flex;
+    min-height: 60px;;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
@@ -16,6 +17,10 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #333;
+}
+
+.logo img {
+    height: 80px;
 }
 
 .search-bar {
@@ -61,6 +66,19 @@ body {
     transform: scale(1.1);
 }
 
+.party2 {
+    font-weight: bold;
+    padding: 15px 12px;
+    width: 15%;
+    height: auto;
+    border: 1px solid #C4A265;
+    background-color: #C4A265;
+    color: rgb(0, 0, 0);
+    border-radius: 1px;
+    cursor: pointer;
+    margin: 18px;
+    font-size: 28px;
+}
 
 .image-container {
     width: 100%;
@@ -82,6 +100,30 @@ body {
     text-align: center;
 }
 
+.div1 {
+    max-width: 23%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.div2 {
+    max-width: 30%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.div3 {
+    max-width: 32%;
+    margin: 0px;
+    padding: 0px;
+}
+
+footer {
+    height: 200px;
+    background-color: #0B0A32;
+    color: #ffffff;
+}
+
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -100,5 +142,22 @@ body {
 
     .buttons button {
         width: 48%;
+    }
+    .div1 {
+        max-width: 50%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .div2 {
+        max-width: 50%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .div3 {
+        max-width: 50%;
+        margin: 0px;
+        padding: 0px;
     }
 }
