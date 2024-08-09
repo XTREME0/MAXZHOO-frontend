@@ -83,7 +83,24 @@
 
             <!-- Tab Content: Upload Media -->
             <div id="Upload Media" class="tabcontent">
-                <p style="color: white;">Details section can contain additional information or advanced settings for the event.</p>
+                <p>Upload pictures for your event.</p>
+
+		    <!-- File Upload Input -->
+		    <div class="upload-section">
+                        <input type="file" id="uploadInput" class="form-control" style="display: none;" onchange="handleFileUpload()">
+                        <label for="uploadInput" class="upload-label" id="dropZone">
+                            <span class="upload-button">
+                                &#128228; Upload Media
+                            </span>
+                        </label>
+                 	<!-- Confirmation Message -->
+                        <p id="uploadMessage" style="display: none;">Media uploaded successfully!</p>
+ 		        <!-- Image Link -->
+                        <p id="imageLink" style="display: none;">
+                            <a id="imageLinkHref" href="#" target="_blank">View Uploaded Image</a>
+                        </p>
+                   </div>
+
                 <div class="button-group">
                     <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
                 </div>
@@ -91,7 +108,7 @@
 
             <!-- Tab Content: Invite Info -->
             <div id="Invite Info" class="tabcontent">
-                <p style="color: white;">This is the Invite Info section where you can display all the event details before submission.</p>
+                <p>This is the Invite Info section where you can display all the event details before submission.</p>
                 <div class="button-group">
                     <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
                 </div>
@@ -99,7 +116,7 @@
 
             <!-- Tab Content: Budget -->
             <div id="Budget" class="tabcontent">
-                <p style="color: white;">This is the Budget section where you can display all the event details before submission.</p>
+                <p>This is the Budget section where you can display all the event details before submission.</p>
                 <div class="button-group">
                     <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
                 </div>
@@ -107,7 +124,7 @@
 
 	    <!-- Tab Content: Payment Info -->
             <div id="Payment Info" class="tabcontent">
-                <p style="color: white;">This is the Payment Info section where you can display all the event details before submission.</p>
+                <p>This is the Payment Info section where you can display all the event details before submission.</p>
                 <div class="button-group">
                     <button type="submit" class="btn">Submit</button>
                 </div>
@@ -119,7 +136,35 @@
     </main>
 
     <script>
-        function openTab(evt, tabName) {
+
+        // Function to display upload success message and image link when file is uploaded
+        function handleFileUpload() {
+            var fileInput = document.getElementById("uploadInput");
+            var file = fileInput.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var imageLink = document.getElementById("imageLink");
+                    var imageLinkHref = document.getElementById("imageLinkHref");
+
+                    // Set the href of the link to the image data URL
+                    imageLinkHref.href = e.target.result;
+                    imageLinkHref.textContent = "View Uploaded Image";
+
+                    // Show the upload message and image link
+                    document.getElementById("uploadMessage").style.display = "block";
+                    imageLink.style.display = "block";
+                };
+
+                // Read the file as a data URL
+                reader.readAsDataURL(file);
+            }
+	}
+
+        // Opens a specific tab and hides all other tabs.
+	function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
 
             // Hide all tab content
@@ -138,29 +183,55 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-function nextTab() {
-    var i, tablinks;
-    var activeTabIndex = -1;
-    var tablinks = document.getElementsByClassName("tablink");
 
-    // Find the index of the currently active tab
-    for (i = 0; i < tablinks.length; i++) {
-        if (tablinks[i].classList.contains("active")) {
-            activeTabIndex = i;
-            break;
+
+        // Finds the index of the currently active tab, and activates the index of the next tab
+        function nextTab() {
+            var i, tablinks;
+            var activeTabIndex = -1;
+            var tablinks = document.getElementsByClassName("tablink");
+
+            // Find the index of the currently active tab
+            for (i = 0; i < tablinks.length; i++) {
+                if (tablinks[i].classList.contains("active")) {
+                    activeTabIndex = i;
+                    break;
+		}
+	    }
+
+            // Get the next tab index
+            var nextTabIndex = activeTabIndex + 1;
+            if (nextTabIndex < tablinks.length) {
+                var nextTab = tablinks[nextTabIndex];
+                var nextTabName = nextTab.textContent.trim(); // Get the tab name based on the button text
+                openTab({currentTarget: nextTab}, nextTabName);
+	    }
+	}
+
+        // Function to handle file drop
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            var files = evt.dataTransfer.files; // FileList object.
+
+            // Handle the file upload process
+            if (files.length > 0) {
+                document.getElementById("uploadInput").files = files;
+                showUploadMessage();
+            }
+	}
+
+        // Function to handle drag over event
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
         }
-    }
 
-    console.log('Active Tab Index:', activeTabIndex); // Debug line
-
-    // Get the next tab index
-    var nextTabIndex = activeTabIndex + 1;
-    if (nextTabIndex < tablinks.length) {
-        var nextTab = tablinks[nextTabIndex];
-        var nextTabName = nextTab.textContent.trim(); // Get the tab name based on the button text
-        openTab({currentTarget: nextTab}, nextTabName);
-    }
-}
+        // Attach event listeners for drag-and-drop functionality
+        var dropZone = document.getElementById('dropZone');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
     </script>
 </body>
 </html>
