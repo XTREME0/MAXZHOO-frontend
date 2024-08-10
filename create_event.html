@@ -87,19 +87,17 @@
 
 		    <!-- File Upload Input -->
 		    <div class="upload-section">
-                        <input type="file" id="uploadInput" class="form-control" style="display: none;" onchange="handleFileUpload()">
+                        <input type="file" id="uploadInput" class="form-control" style="display: none;" onchange="handleFileUpload()" multiple>
                         <label for="uploadInput" class="upload-label" id="dropZone">
                             <span class="upload-button">
                                 &#128228; Upload Media
                             </span>
                         </label>
-                 	<!-- Confirmation Message -->
+		        <!-- Confirmation Message -->
                         <p id="uploadMessage" style="display: none;">Media uploaded successfully!</p>
- 		        <!-- Image Link -->
-                        <p id="imageLink" style="display: none;">
-                            <a id="imageLinkHref" href="#" target="_blank">View Uploaded Image</a>
-                        </p>
-                   </div>
+		        <!-- Image Links Container -->
+                        <div id="imageLinksContainer" style="display: none;"></div>
+                    </div>
 
                 <div class="button-group">
                     <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
@@ -137,34 +135,9 @@
 
     <script>
 
-        // Function to display upload success message and image link when file is uploaded
-        function handleFileUpload() {
-            var fileInput = document.getElementById("uploadInput");
-            var file = fileInput.files[0];
-
-            if (file) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    var imageLink = document.getElementById("imageLink");
-                    var imageLinkHref = document.getElementById("imageLinkHref");
-
-                    // Set the href of the link to the image data URL
-                    imageLinkHref.href = e.target.result;
-                    imageLinkHref.textContent = "View Uploaded Image";
-
-                    // Show the upload message and image link
-                    document.getElementById("uploadMessage").style.display = "block";
-                    imageLink.style.display = "block";
-                };
-
-                // Read the file as a data URL
-                reader.readAsDataURL(file);
-            }
-	}
 
         // Opens a specific tab and hides all other tabs.
-	function openTab(evt, tabName) {
+        function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
 
             // Hide all tab content
@@ -183,7 +156,6 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-
 
         // Finds the index of the currently active tab, and activates the index of the next tab
         function nextTab() {
@@ -208,18 +180,49 @@
 	    }
 	}
 
+        // Function to handle file upload
+        function handleFileUpload() {
+            var fileInput = document.getElementById("uploadInput");
+            var files = fileInput.files;
+            var imageLinksContainer = document.getElementById("imageLinksContainer");
+
+            imageLinksContainer.innerHTML = ""; // Clear previous image links
+
+            if (files.length > 0) {
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var reader = new FileReader();
+
+                    reader.onload = (function(file) {
+                        return function(e) {
+                            var link = document.createElement("a");
+                            link.href = e.target.result;
+                            link.target = "_blank";
+                            link.textContent = "View " + file.name;
+                            imageLinksContainer.appendChild(link);
+                            imageLinksContainer.appendChild(document.createElement("br"));
+                        };
+		    })(file);
+
+                    reader.readAsDataURL(file);
+		}
+
+                // Show the upload message and image link
+                document.getElementById("uploadMessage").style.display = "block";
+                imageLinksContainer.style.display = "block";
+	    }
+        }
+
         // Function to handle file drop
         function handleFileSelect(evt) {
             evt.stopPropagation();
             evt.preventDefault();
             var files = evt.dataTransfer.files; // FileList object.
 
-            // Handle the file upload process
-            if (files.length > 0) {
-                document.getElementById("uploadInput").files = files;
-                showUploadMessage();
-            }
-	}
+            // Assign files to file input
+            document.getElementById("uploadInput").files = files;
+            handleFileUpload(); // Call the same function used for the file input change event
+        }
 
         // Function to handle drag over event
         function handleDragOver(evt) {
@@ -232,7 +235,7 @@
         var dropZone = document.getElementById('dropZone');
         dropZone.addEventListener('dragover', handleDragOver, false);
         dropZone.addEventListener('drop', handleFileSelect, false);
+
     </script>
 </body>
 </html>
-
