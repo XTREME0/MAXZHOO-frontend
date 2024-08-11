@@ -1,8 +1,8 @@
 main {
     background-image: url('static/imgs/creat_event.jpg');
     background-position: center center;
-    background-repeat: no-repeat;
-    background-position: cover;
+/*    background-repeat: no-repeat;
+*/    background-position: cover;
     padding: 5em;
     height: 100vh;
    
@@ -173,7 +173,7 @@ textarea.form-control {
 }
 
 .upload-label:hover {
-    border-color: #007bff;
+    border-color: #ce474d;
 }
 
 /* Style for the button in the middle */
@@ -217,6 +217,8 @@ input[type="file"] {
 .button-group {
     text-align: center;
 }
+.button-group .btn {
+margin-top: 2em}
 
 .btn {
     background-color: #190c76;
@@ -246,51 +248,7 @@ input[type="file"] {
 main{
     padding: .5em !important;
 } 
-/*
-        .navbar-brand {
-            margin-right: 20px;
-        }
-
-        .navbar-nav {
-            flex-grow: 1;
-            justify-content: center;
-        }
-
-        .navbar-nav > li {
-            margin: 0 10px;
-        }
-
-        .d-flex {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar-form {
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        @media (max-width: 767.98px) {
-            .navbar-nav {
-                text-align: left;
-                flex-direction: column;
-                margin-top: 10px;
-            }
-
-            .d-flex {
-                justify-content: flex-start;
-                flex-direction: row;
-            }
-
-            .d-flex .btn,
-            .d-flex .form-control {
-                margin-right: 10px;
-            }
-
-            .d-flex .btn:last-child,
-            .d-flex .form-control:last-child {
-                margin-right: 0;
-            }
-        }
-	*/
+.tablink.active , .bg-aka {
+    background-color: #ce474d !important;
+    color:#fff !important;
+}

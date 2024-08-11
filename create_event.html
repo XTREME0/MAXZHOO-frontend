@@ -27,16 +27,33 @@
             <!-- Navbar links and buttons -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#">Menu 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu 2</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Menu 3</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">EVENTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">CONTACT US</a></li>
                 </ul>
                 <div class="d-flex">
-                    <button class="btn btn-primary me-2">sign in</button>
                     <!-- Search Form -->
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
+                    <!-- Profile icon -->
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="profile-pic">
+                                    <img src="https://source.unsplash.com/250x250?girl" alt="Profile Picture">
+                                 </div>
+                             <!-- You can also use icon as follows: -->
+                               <!--  <i class="fas fa-user"></i> -->
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sliders-h fa-fw"></i> Account</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw"></i> Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a></li>
+                              </ul>
+                            </li>
+                         </ul>
                 </div>
             </div>
         </div>
@@ -98,13 +115,14 @@
                 </div>
 
                 <div class="button-group">
-                    <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
+                    <button class="btn bg-aka" type="button" onclick="nextTab()">Save & Continue</button>
                 </div>
             </div>
 
             <!-- Tab Content: Upload Media -->
             <div id="Upload Media" class="tabcontent">
-                <p class="mx-5 text-center" >Upload pictures for your event.</p>
+                <div class="border border-white p-3">
+                <h3 class="mx-5 text-center" >Upload pictures for your event.</h3>
 
 		    <!-- File Upload Input -->
 		    <div class="upload-section">
@@ -119,18 +137,18 @@
 		        <!-- Image Links Container -->
                         <div id="imageLinksContainer" style="display: none;"></div>
                     </div>
-
-                <div class="button-group">
-                    <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
+                </div>
+                <div class="button-group ">
+                    <button class="btn bg-aka" type="button" onclick="nextTab()">Save & Continue</button>
                 </div>
             </div>
 
 <!-- Tab Content: Invite Info -->
 <div id="Invite Info" class="tabcontent">
-    <p>Invite users to your event.</p>
+    <div class="border border-white p-3">
     <div class="">
-        <h2>Autocomplete Tag Input</h2>
-<input name='tags' placeholder='write some tags' value='UX,HR'>
+        <h3>Invite Users</h3>
+<input name='tags' placeholder='Profile Name'>
        
     </div>
     <!-- List of invited users -->
@@ -138,21 +156,23 @@
         <h3>Invited Users:</h3>
         <ul id="invitedUsers"></ul>
     </div>
+    </div>
     <div class="button-group">
-        <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
+        <button class="btn bg-aka" type="button" onclick="nextTab()">Save & Continue</button>
     </div>
 </div>
 
-<!-- Tab Content: Invite Info -->
-<div id="Budget" class="tabcontent">
-    
+
+<!-- Tab Content: Budget -->
+<div id="Budget" class="tabcontent ">
+    <div class="border border-white p-3">
     <form>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="First name">
+          <input type="text" class="form-control" placeholder="Commodity Name">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Last name">
+          <input type="number" class="form-control" placeholder="Budget Allocated">
         </div>
       </div>
       <div class="row area">
@@ -160,15 +180,57 @@
       </div>
     </form>
     <div class="button-group">
-        <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
+        <button class="btn bg-aka" type="button">Add</button>
+    </div>
+    </div>
+    <div class="button-group">
+        <button class="btn bg-aka" type="button" onclick="nextTab()">Save & Continue</button>
     </div>
 </div>
 
 	    <!-- Tab Content: Payment Info -->
-            <div id="Payment Info" class="tabcontent">
-                <p>This is the Payment Info section where you can display all the event details before submission.</p>
+            <div id="Payment Info" class="tabcontent ">
+                <div class="border border-white p-3">
+                <h3>Please select payment methods to be linked with this Event</h3>
+
+                <div class="my-3">
+                    <div class="form-check">
+                      <input class="form-check-input bg-aka" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Credit card
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input bg-aka" type="checkbox" value="" id="flexCheckChecked" >
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Debit card
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input bg-aka" type="checkbox" value="" id="flexCheckChecked" >
+                      <label class="form-check-label" for="flexCheckChecked">
+                        UPI
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input bg-aka" type="checkbox" value="" id="flexCheckChecked" >
+                      <label class="form-check-label" for="flexCheckChecked">
+                        PayPal
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input bg-aka" type="checkbox" value="" id="flexCheckChecked" >
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Gift Cards
+                      </label>
+                    </div>
+                </div>
+                </div>
                 <div class="button-group">
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn bg-aka">Submit</button>
                 </div>
             </div>
 </div>
