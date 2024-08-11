@@ -5,24 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create an Event</title>
     <link href="create_event.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel='stylesheet' href='https://unpkg.com/@yaireo/tagify/dist/tagify.css'>
+    <link rel="stylesheet" href="./invite.css">
+
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="static/imgs/logo.png" alt="">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Navbar Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="./static/imgs/logo.png" class="img-fluid w-50" alt="">
+            </a>
+
+            <!-- Toggle button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links and buttons -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Menu 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu 2</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu 3</a></li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-primary me-2">sign in</button>
+                    <!-- Search Form -->
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button class="btn" type="submit">Search</button>
-        </div>
-        <div class="buttons">
-            <button class="party">Create Party</button>
-            <button class="party">Favorites</button>
-            <button class="party">Help Center</button>
-        </div>
-    </header>
-    <main>
-        <div class="container">
+    </nav>
+        <main>
+        <div class="container bg-figma">
+            <div class="wrapper">
             <h2>Create an Event</h2>
 
             <!-- Tabs Navigation -->
@@ -83,13 +104,13 @@
 
             <!-- Tab Content: Upload Media -->
             <div id="Upload Media" class="tabcontent">
-                <p>Upload pictures for your event.</p>
+                <p class="mx-5 text-center" >Upload pictures for your event.</p>
 
 		    <!-- File Upload Input -->
 		    <div class="upload-section">
                         <input type="file" id="uploadInput" class="form-control" style="display: none;" onchange="handleFileUpload()" multiple>
                         <label for="uploadInput" class="upload-label" id="dropZone">
-                            <span class="upload-button">
+                            <span class="upload-button btn btn-darki">
                                 &#128228; Upload Media
                             </span>
                         </label>
@@ -104,21 +125,44 @@
                 </div>
             </div>
 
-            <!-- Tab Content: Invite Info -->
-            <div id="Invite Info" class="tabcontent">
-                <p>This is the Invite Info section where you can display all the event details before submission.</p>
-                <div class="button-group">
-                    <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
-                </div>
-            </div>
+<!-- Tab Content: Invite Info -->
+<div id="Invite Info" class="tabcontent">
+    <p>Invite users to your event.</p>
+    <div class="">
+        <h2>Autocomplete Tag Input</h2>
+<input name='tags' placeholder='write some tags' value='UX,HR'>
+       
+    </div>
+    <!-- List of invited users -->
+    <div id="invitedUsersList" class="invited-list">
+        <h3>Invited Users:</h3>
+        <ul id="invitedUsers"></ul>
+    </div>
+    <div class="button-group">
+        <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
+    </div>
+</div>
 
-            <!-- Tab Content: Budget -->
-            <div id="Budget" class="tabcontent">
-                <p>This is the Budget section where you can display all the event details before submission.</p>
-                <div class="button-group">
-                    <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
-                </div>
-            </div>
+<!-- Tab Content: Invite Info -->
+<div id="Budget" class="tabcontent">
+    
+    <form>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name">
+        </div>
+      </div>
+      <div class="row area">
+          <textarea class="form-control" placeholder="Description"></textarea>
+      </div>
+    </form>
+    <div class="button-group">
+        <button class="btn" type="button" onclick="nextTab()">Save & Continue</button>
+    </div>
+</div>
 
 	    <!-- Tab Content: Payment Info -->
             <div id="Payment Info" class="tabcontent">
@@ -127,7 +171,7 @@
                     <button type="submit" class="btn">Submit</button>
                 </div>
             </div>
-
+</div>
 
 
         </div>
@@ -236,6 +280,33 @@
         dropZone.addEventListener('dragover', handleDragOver, false);
         dropZone.addEventListener('drop', handleFileSelect, false);
 
+// Function to add invited users to the list
+function addInvite(type) {
+    var inputField, inviteList, inviteTypeText;
+
+    if (type === 'email') {
+        inputField = document.getElementById('inviteEmailInput');
+        inviteTypeText = 'Email: ';
+    } else if (type === 'profile') {
+        inputField = document.getElementById('inviteProfileInput');
+        inviteTypeText = 'Profile: ';
+    }
+
+    var userInput = inputField.value.trim();
+    if (userInput !== '') {
+        inviteList = document.getElementById('invitedUsers');
+
+        var listItem = document.createElement('li');
+        listItem.textContent = inviteTypeText + userInput;
+
+        inviteList.appendChild(listItem);
+
+        // Clear the input field after adding the invite
+        inputField.value = '';
+    }
+}
     </script>
+    <script src='https://unpkg.com/@yaireo/tagify'>
+    </script><script  src="./invite.js"></script>
 </body>
 </html>
