@@ -21,6 +21,11 @@ body {
     margin-top: 15%;
 }
 
+.logo img {
+    height: 60px; /* Adjust this value to your desired size */
+    margin-bottom: 30px;
+}
+
 h1 {
     color: #ce474d;
     font-size: 35px;
