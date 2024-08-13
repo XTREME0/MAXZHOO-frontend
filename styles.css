@@ -25,6 +25,13 @@ body {
     height: 60px;
 }
 
+h1 {
+    color: #C4A265;
+}
+h2 {
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
 .search-bar {
     flex: 1;
     margin: 0 20px;
@@ -120,7 +127,27 @@ body {
     flex-wrap: wrap;
     padding: 20px;
 }
+.page3-container {
+    display: flex;
 
+    margin: 80px;
+}
+.page3-container p { 
+    color: white;
+
+}
+.p3-1 {
+    max-width: 40%;
+}
+.p3-1 img {
+    max-width: 100%;
+}
+.p3-1 p {
+    font-size: 30px;
+}
+.p3-2 {
+    max-width: 60%;
+}
 .card {
     position: relative;
     width: 500px;
