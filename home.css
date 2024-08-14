@@ -1,9 +1,59 @@
-main {
+/*main {
     background-position: center center;
     background-position: cover;
     padding: 5em 1em;
     height: 100vh;
    
+}*/
+
+footer {
+    background-color: #566d85;
+    padding: 2rem 0;
+}
+
+footer h5 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+footer a:hover {
+    color: #7989e4;
+    text-decoration: underline;
+}
+
+footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+footer .col {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 767px) {
+    footer .col {
+        flex: 1 1 100%;
+    }
 }
 
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
