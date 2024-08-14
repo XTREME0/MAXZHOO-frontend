@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register_2.css">
+    <title>Interests and Personality</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Great!! You're just one step away</h1>
+        <p>Tell us about your hobbies & interests & personality...</p>
+        <div class="tags">
+            <div class="tag">Badminton</div>
+            <div class="tag">Introvert</div>
+            <div class="tag">Music</div>
+            <div class="tag">Cooking</div>
+            <div class="tag">Travelling</div>
+            <div class="tag">Dancing</div>
+            <div class="tag">Pool Party</div>
+            <div class="tag">Extrovert</div>
+            <div class="tag">Political Science</div>
+            <div class="tag">Party</div>
+            <div class="tag">Singing</div>
+            <div class="tag">EDM</div>
+            <div class="tag">Fashion</div>
+            <div class="tag">Vergin</div>
+            <div class="tag">Basketball</div>
+            <div class="tag">Sports</div>
+            <div class="tag">Gaming</div>
+            <div class="tag">Drama</div>
+            <div class="tag">Social Work</div>
+            <div class="tag">Business</div>
+            <div class="tag">Goth Girl</div>
+        </div>
+        <div class="actions">
+            <button class="skip">Skip</button>
+            <button class="finish" onclick="submitSelection()">Finish</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('selected');
+            });
+        });
+
+
+        function submitSelection() {
+            const selectedTags = [];
+            document.querySelectorAll('.tag.selected').forEach(tag => {
+                selectedTags.push(tag.innerText);
+            });
+            console.log('Selected Tags:', selectedTags);
+
+            fetch('/submit-interests', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ interests: selectedTags })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
