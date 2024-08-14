@@ -223,23 +223,30 @@ main {
            border-radius: 5px;
            background-color: #fff;
        }*/
+    .custom-heading {
+      font-size: 2.5rem; /* Adjust the font size */
+      color: #ff5733;    /* Set a custom color */
+      text-align: center; /* Center the text */
+      font-weight: 700;  /* Set font weight */
+      text-transform: uppercase; /* Make text uppercase */
+    }
 
        /* Shadow border styling */
        .shadow-border {
-         padding: 1rem;
-         background-color: #f9f9f9; /* Light background color */
+         padding: 1rem 0rem;
+         background-color: #black;
          border-radius: 0.5rem;
          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
        }
 
        @media (max-width: 599px) {
          .shadow-border {
-           padding: 2rem; /* Larger padding on mobile */
+           padding: 2rem 0rem; /* Larger padding on mobile */
          }
        }
 
        @media (min-width: 600px) {
          .shadow-border {
-           padding: 1rem; /* Default padding for medium screens and up */
+           padding: 1rem 0rem; /* Default padding for medium screens and up */
          }
        }
