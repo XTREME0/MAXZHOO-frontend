@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="auth.css">
     <title>MAX ZHOO - Signup</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="log-container">
-            <div class="mini-cont">
-	        <div class="logo">
-                    <img src="static/imgs/logo.png" alt="">
-                </div>
-
-                <h2>Create an <br>account</h2>
-                <form class="login-form">
-                    <input type="email" id="email" name="email" placeholder="Email address" required>
-                    <input type="password" id="password" name="password" placeholder="password" required>
-                    <input type="confirm-password" id="confirm-password" name="confirm-password" placeholder="confirm password" required>
-                    <input type="name" id="name" name="name" placeholder="Full Name" required>
-                    <input type="interests" id="interests" name="interests" placeholder="Interests" required>
-                    <button type="submit">Create Profile</button>
-                </form>
-            </div>
-            
+      <div class="log-container">
+        <div class="mini-cont">
+          <div class="logo">
+            <img src="static/imgs/logo.png" alt="">
+          </div>
+          <h2>Create an <br>account </h2>
+          <form class="login-form" id="registrationForm">
+            <input type="email" id="email" name="email" placeholder="Email address" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+            <button type="submit">Create Profile</button>
+          </form>
         </div>
-        <div class="imgcont">
-            <img class="side-img" src="static/imgs/login-t.jpeg" alt="Login Image">
-        </div>
+      </div>
+      <div class="imgcont">
+        <img class="side-img" src="static/imgs/login-t.jpeg" alt="Login Image">
+      </div>
     </div>
-</body>
+    <script>
+      document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        // Perform any additional form validation here
+        // For example, check if passwords match
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirm-password').value;
+        if (password !== confirmPassword) {
+          alert('Passwords do not match. Please try again.');
+          return;
+        }
+        // If the form is valid, redirect to the next registration step
+        window.location.href = 'register_1.html';
+      });
+    </script>
+  </body>
 </html>
