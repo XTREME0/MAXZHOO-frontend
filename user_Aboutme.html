@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="user_Aboutme.css">
+</head>
+<body>
+    <script>
+                // Simulate fetching data from backend
+        document.addEventListener('DOMContentLoaded', () => {
+            // Replace with actual backend call
+            fetchProfileData().then(profileData => {
+                document.getElementById('profile-name').textContent = profileData.name;
+                document.getElementById('profile-pic').src = profileData.profilePic;
+                document.getElementById('dob').textContent = `Date of Birth: ${profileData.dob}`;
+                document.getElementById('email').textContent = `Email ID: ${profileData.email}`;
+                document.getElementById('contact').textContent = `Contact number: ${profileData.contact}`;
+            });
+        });
+
+        // Mock function to simulate backend data retrieval
+        function fetchProfileData() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        name: "Panda Man",
+                        profilePic: "static/imgs/default-profile.jpg",
+                        dob: "23/04/2000",
+                        email: "Somethinghere@server.com",
+                        contact: "1234567890"
+                    });
+                }, 1000);
+            });
+        }
+
+            document.addEventListener('DOMContentLoaded', () => {
+        // Simulate fetching data from backend
+        fetchProfileData().then(profileData => {
+            document.getElementById('profile-name').textContent = profileData.name;
+            document.getElementById('profile-pic').src = profileData.profilePic;
+            document.getElementById('dob').textContent = `Date of Birth: ${profileData.dob}`;
+            document.getElementById('email').textContent = `Email ID: ${profileData.email}`;
+            document.getElementById('contact').textContent = `Contact number: ${profileData.contact}`;
+        });
+
+        // Handle tab navigation
+        const tabs = document.querySelectorAll('.profile-nav a');
+        const sections = document.querySelectorAll('.tab-content');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
+                // Remove active class from all tabs and sections
+                tabs.forEach(t => t.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                sections[index].classList.add('active');
+            });
+        });
+    });
+
+    // Mock function to simulate backend data retrieval
+    function fetchProfileData() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    name: "Panda Man",
+                    profilePic: "static/imgs/default-profile.jpg",
+                    dob: "23/04/2000",
+                    email: "Somethinghere@server.com",
+                    contact: "1234567890"
+                });
+            }, 1000);
+        });
+    }
+    </script>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">MaxZhoo</div>
+            <input type="text" placeholder="Search" class="search-bar">
+            <nav>
+                <ul>
+                    <li><a href="#">Create Event</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#" class="profile-link">Simo <img src="static/imgs/default-profile.jpg" alt="Profile" class="profile-icon"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<main>
+    <section class="profile-section">
+        <div class="profile-card">
+            <img id="profile-pic" src="static/imgs/default-profile.jpg" alt="Profile Picture" class="profile-picture">
+            <h1 id="profile-name">Panda Man</h1>
+            <p id="dob">Date of Birth: 23/04/2000</p>
+            <p id="email">Email ID: Somethinghere@server.com</p>
+            <p id="contact">Contact number: 1234567890</p>
+        </div>
+
+        <nav class="profile-nav">
+            <ul>
+                <li><a href="#" class="active">About me</a></li>
+                <li><a href="#">My Bookings</a></li>
+                <li><a href="#">My Events</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+
+        <div class="tab-content active">
+            <div class="about-me">
+                <p>Lorem ipsum dolor sit amet, consectetur. Lectus euismod ac et pellentesque tincidunt commodo aliquam turpis posuere.</p>
+                <p>Personality: label1, label2...</p>
+            </div>
+        </div>
+        <div class="tab-content">
+            <p>My Bookings content...</p>
+        </div>
+        <div class="tab-content">
+            <p>My Events content...</p>
+        </div>
+        <div class="tab-content">
+            <p>Calendar content...</p>
+        </div>
+        <div class="tab-content">
+            <p>Settings content...</p>
+        </div>
+    </section>
+</main>
+
+
+    <footer>
+        <div class="footer-section">
+            <div class="footer-column">
+                <h3>About us</h3>
+                <ul>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Our Vision</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Career At</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact us</h3>
+                <p>Email: MaxZhoo@gmail.com</p>
+                <p>Phone: 1234567890</p>
+                <p>Alternate: 0987654321</p>
+            </div>
+            <div class="footer-column">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="#">Organizer Support</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Report a scam</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>For regular event updates</h3>
+                <input type="email" placeholder="Enter your mail id here..." class="newsletter-input">
+                <div class="social-icons">
+                    <a href="#"><img src="social-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="social-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="social-icon.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="social-icon.png" alt="Twitter"></a>
+                </div>
+            </div>
+        </div>
+        <p class="footer-credit">© MaxZhoo Pvt. LTD. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
