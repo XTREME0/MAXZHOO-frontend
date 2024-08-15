@@ -28,6 +28,10 @@
                             <label for="female"><span></span> Female</label>
                         </div>
                         <div class="checkbox-wrapper-24">
+                            <input type="radio" id="other" name="gender" value="other">
+                            <label for="other"><span></span> Other</label>
+                        </div>
+                        <div class="checkbox-wrapper-24">
                             <input type="radio" id="prefer-not-say-gender" name="gender" value="prefer-not-say">
                             <label for="prefer-not-say-gender"><span></span> Prefer not to say</label>
                         </div>
@@ -108,6 +112,7 @@
                 console.error('Error:', error);
                 // Handle error
             });
+            window.location.href = 'register_2.html';
         });
     </script>
 </body>
