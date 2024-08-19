@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('./static/imgs/register-bg-1.jpeg'); /* Use the same image as in the screenshot */
+    background-image: url('../static/imgs/register-bg-1.jpeg'); /* Use the same image as in the screenshot */
     background-size: cover;
     background-position: center;
     color: white;

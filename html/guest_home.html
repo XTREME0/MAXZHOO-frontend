@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css'>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel='stylesheet' href='https://unpkg.com/@yaireo/tagify/dist/tagify.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="./home.css">
-    <link rel="stylesheet" href="./profile_card.css">
-    <link rel="stylesheet" href="./testimonial.css">
-    <link rel="stylesheet" href="./newsletter-section.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/profile_card.css">
+    <link rel="stylesheet" href="../css/testimonial.css">
+    <link rel="stylesheet" href="../css/newsletter-section.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kMVqIzKsbIM3a5tkH1+Vhoh44HrQsbOzE8piF8PL/4iY7kSAVWUX7dG5TQnOfG8V1sCqBN4cFtyIg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="carousel.css" rel="stylesheet">
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/navbar.css" rel="stylesheet">
+
 
         <style>
           .bd-placeholder-img {
@@ -43,7 +45,7 @@
       <div class="container-fluid">
         <!-- Navbar Brand -->
         <a class="navbar-brand img-fluid logo-small" href="#">
-          <img src="./static/imgs/logo.png" class="img-fluid w-50" alt="">
+          <img src="../static/imgs/logo.png" class="img-fluid w-50" alt="">
         </a>
         <!-- Toggle button for mobile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +61,7 @@
               <a class="nav-link" href="#">EVENTS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">FAVORITS</a>
+              <a class="nav-link" href="#">Contact Us</a>
             </li>
           </ul>
           <div class="d-flex">
@@ -69,90 +71,12 @@
             </form>
           </div>
           <!-- Profile icon -->
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <div>
-                  <img src="https://source.unsplash.com/250x250?girl" alt="Profile Picture">
-                </div>
-                <!-- You can also use icon as follows: -->
-                <!--  <i class="fas fa-user"></i> -->
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#">
-                   Account </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                     Settings </a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    Log Out </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <a href="./login.html" class="btn btn-primary btn-lg">Sign Up</a>
         </div>
       </div>
     </nav>
-    <!-- Other HTML content goes here -->
+    <!-- main HTML content goes here -->
         <main>
-          <!-- <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item">
-                  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-                  <div class="container">
-                    <div class="carousel-caption text-start">
-                      <h1>Example headline.</h1>
-                      <p>Some representative placeholder content for the first slide of the carousel.</p>
-                      <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item active">
-                  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-                  <div class="container">
-                    <div class="carousel-caption">
-                      <h1>Another example headline.</h1>
-                      <p>Some representative placeholder content for the second slide of the carousel.</p>
-                      <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-                  <div class="container">
-                    <div class="carousel-caption text-end">
-                      <h1>One more for good measure.</h1>
-                      <p>Some representative placeholder content for the third slide of this carousel.</p>
-                      <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          <div> -->
             <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
@@ -160,19 +84,19 @@
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
               </div>
               <div class="carousel-inner">
-                <div class="carousel-item">
-                  <a href="link1.html" class="carousel-cover" style="background-image: url('./static/imgs/carousel1.jpg');"></a>
+                <div class="carousel-item active">
+                  <a href="link1.html" class="carousel-cover" style="background-image: url('../static/imgs/carousel1.jpg');"></a>
                   <div class="container">
                     <div class="carousel-caption text-start">
                       <h1 style="color: black; font-weight: bold;">Join Us</h1>
                       <p style="color: black; font-weight: bold  ;">there's something for everyone.<br> <br>
                       Join us to create lasting memories and connect with like-minded individuals.</p>
-                      <p><a class="btn btn-lg btn-primary" href="">Sign up today</a></p>
+                      <p><a class="btn btn-lg btn-primary" href="./signup.html">Sign up today</a></p>
                     </div>
                   </div>
                 </div>
-                <div class="carousel-item active">
-                  <a href="link2.html" class="carousel-cover" style="background-image: url('./static/imgs/carousel2.jpg');"></a>
+                <div class="carousel-item">
+                  <a href="link2.html" class="carousel-cover" style="background-image: url('../static/imgs/carousel2.jpg');"></a>
                   <div class="container">
                     <div class="carousel-caption">
                       <h1 style="color: white; font-weight: bold;">About Us.</h1>
@@ -184,7 +108,7 @@
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <a href="link3.html" class="carousel-cover" style="background-image: url('./static/imgs/carousel3.jpg');"></a>
+                  <a href="link3.html" class="carousel-cover" style="background-image: url('../static/imgs/carousel3.jpg');"></a>
                   <div class="container">
                     <div class="carousel-caption text-end">
                       <h1 style="color: white; font-weight: bold;">One more for good measure.</h1>
@@ -349,7 +273,7 @@
      
       <div class="profile">
         <div class="profile-image">
-            <img src="./static/imgs/user.jpeg" />
+            <img src="../static/imgs/user.jpeg" />
         </div>
         <h2 class="profile-username">Elena Zoldado</h2>
         <small class="profile-user-handle">@elena_zoldado</small>
@@ -377,7 +301,7 @@
 
       <div class="profile">
         <div class="profile-image">
-            <img src="./static/imgs/user.jpeg" />
+            <img src="../static/imgs/user.jpeg" />
         </div>
         <h2 class="profile-username">Elena Zoldado</h2>
         <small class="profile-user-handle">@elena_zoldado</small>
@@ -405,7 +329,7 @@
 
       <div class="profile">
         <div class="profile-image">
-            <img src="./static/imgs/user.jpeg" />
+            <img src="../static/imgs/user.jpeg" />
         </div>
         <h2 class="profile-username">Elena Zoldado</h2>
         <small class="profile-user-handle">@elena_zoldado</small>
@@ -433,7 +357,7 @@
 
       <div class="profile">
         <div class="profile-image">
-            <img src="./static/imgs/user.jpeg" />
+            <img src="../static/imgs/user.jpeg" />
         </div>
         <h2 class="profile-username">Elena Zoldado</h2>
         <small class="profile-user-handle">@elena_zoldado</small>
@@ -616,7 +540,7 @@
 
     <!-- partial -->
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script><script  src="./testimonial.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script><script  src="../js/testimonial.js"></script>
       <script src='https://unpkg.com/phosphor-icons'></script><script  src="./script.js"></script>
       <script src="icons.js"></script>
 </body>
