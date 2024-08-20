@@ -32,16 +32,54 @@
     <script>
       document.getElementById('registrationForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
-        // Perform any additional form validation here
-        // For example, check if passwords match
+        
+        var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var confirmPassword = document.getElementById('confirm-password').value;
+        var name = document.getElementById('name').value;
+
         if (password !== confirmPassword) {
           alert('Passwords do not match. Please try again.');
           return;
         }
-        // If the form is valid, redirect to the next registration step
-        window.location.href = 'register_1.html';
+
+        // Split full name into firstName and lastName
+        var names = name.split(" ");
+        var firstName = names[0];
+        var lastName = names.slice(1).join(" ") || "";
+
+        var data = {
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          listOfInterest: [],
+          tel: "",
+          birthDate: "",
+          maritalStatus: "",
+          address: "",
+          gender: ""
+        };
+
+        fetch('/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            // Redirect to the email verification page
+            window.location.href = 'verify_email.html?email=' + encodeURIComponent(email);
+          } else {
+            alert('Error: ' + (data.message || 'Unable to register.'));
+          }
+        })
+        .catch(error => {
+          alert('An error occurred: ' + error.message);
+        });
       });
     </script>
   </body>
