@@ -32,7 +32,7 @@
     <script>
       document.getElementById('registrationForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
-        
+
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var confirmPassword = document.getElementById('confirm-password').value;
@@ -61,7 +61,7 @@
           gender: ""
         };
 
-        fetch('/api/auth/register', {
+        fetch('http://localhost:5000/api/auth/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
